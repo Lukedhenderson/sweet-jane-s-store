@@ -26,6 +26,8 @@ export interface Product {
 type ColorDetails = {
   space: ColorGamut;
   name: string;
+  id: string;
+  value: string;
 };
 
 export interface Image {
