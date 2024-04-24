@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",
+    "@types/mongoose": "^5.11.97",
     "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "lucide-react": "^0.368.0",
+    "mongoose": "^8.3.2",
     "next": "14.2.1",
     "query-string": "^9.0.0",
     "react": "^18",
