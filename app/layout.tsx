@@ -6,17 +6,16 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ModalProvider from "@/providers/modal-provider";
 import ToastProvider from "@/providers/toast-provider";
+import Head from "next/head";
 
 import "./globals.css";
-import Landing from "@/components/landingdiv";
-
 
 
 const font = Lora({ subsets: ["latin"] }); //font
 
 export const metadata: Metadata = {
-  title: "Store",
-  description: "Store",
+  title: "Handsome Llama",
+  description: "Handsome Llama store",
 };
 
 export default function RootLayout({
@@ -26,6 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+        <Head>
+          <link rel="shortcut icon" type="image/x-icon" href="public\favicon.ico" />
+          </Head>
+        <title>Handsome Llama</title>
       <body className={`xl:px-9 2xl:px-36 bg-[AntiqueWhite] ${font.className}`}>
         <ModalProvider />
         <ToastProvider />
