@@ -15,8 +15,8 @@ import Landing from "@/components/landingdiv";
 const font = Lora({ subsets: ["latin"] }); //font
 
 export const metadata: Metadata = {
-  title: "Store",
-  description: "Store",
+  title: "Handsome Llama",
+  description: "Handsome Llama store",
 };
 
 export default function RootLayout({
