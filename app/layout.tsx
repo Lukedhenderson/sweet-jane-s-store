@@ -25,10 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <Head>
-          <link rel="shortcut icon" type="image/x-icon" href="public\favicon.ico" />
-          </Head>
-        <title>Handsome Llama</title>
+      <Head>
+        <link rel="icon" href="/public/favicon.ico" />
+      </Head>
       <body className={`xl:px-9 2xl:px-36 bg-[AntiqueWhite] ${font.className}`}>
         <ModalProvider />
         <ToastProvider />
