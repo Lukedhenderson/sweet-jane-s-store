@@ -21,6 +21,7 @@ export interface Product {
   size: Size;
   color: ColorDetails;
   images: Image[];
+  quantity: number;
 };
 
 type ColorDetails = {

@@ -6,7 +6,7 @@ import IconButton from "@/components/ui/icon-button";
 import { Expand, ShoppingCart } from "lucide-react";
 import Currency from "@/components/ui/currency";
 import { useRouter } from "next/navigation";
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, useState } from "react";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
 
@@ -14,30 +14,31 @@ interface ProductCard {
   data: Product;
 }
 
-const ProductCard: React.FC<ProductCard> = ({
-  data
-}) => {
+const ProductCard: React.FC<ProductCard> = ({ data }) => {
+  const [quantity, setQuantity] = useState(1);
   const cart = useCart();
   const previewModal = usePreviewModal();
   const router = useRouter();
 
   const handleClick = () => {
-      router.push(`/product/${data?.id}`);
-  }
+    router.push(`/product/${data?.id}`);
+  };
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
-
     previewModal.onOpen(data);
-  }
+  };
 
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
+    cart.addItem({ ...data, quantity });
+  };
 
-    cart.addItem(data);
-  }
+  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuantity(Number(event.target.value));
+  };
 
-  return ( 
+  return (
     <div onClick={handleClick} className="bg-[AntiqueWhite] border-black group cursor-pointer rounded-md border p-3 space-y-4 mb-4">
       {/* Images and Actions */}
       <div className="aspect-square rounded-md bg-gray-100 relative">
@@ -60,7 +61,7 @@ const ProductCard: React.FC<ProductCard> = ({
           </div>
         </div>
       </div>
-      {/*Description*/}
+      {/* Description */}
       <div>
         <p className="font-semibold text-lg">
           {data.name}
@@ -69,12 +70,19 @@ const ProductCard: React.FC<ProductCard> = ({
           {data.category?.name}
         </p>
       </div>
-      {/*price*/}
+      {/* Quantity */}
       <div className="flex items-center justify-between">
+        <input 
+          type="number"
+          value={quantity}
+          onChange={handleQuantityChange}
+          min="1"
+          className="border rounded-md p-1 text-center w-16"
+        />
         <Currency value={data?.price} />
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default ProductCard;

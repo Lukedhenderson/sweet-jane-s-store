@@ -14,8 +14,8 @@ import "./globals.css";
 const font = Lora({ subsets: ["latin"] }); //font
 
 export const metadata: Metadata = {
-  title: "Handsome Llama",
-  description: "Handsome Llama store",
+  title: "Sweet Jane's Honey",
+  description: "Nonprofit",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/public/favicon.ico" />
       </Head>
-      <body className={`xl:px-9 2xl:px-36 bg-[AntiqueWhite] ${font.className}`}>
+      <body className={`xl:px-9 2xl:px-36 bg-sky-200 ${font.className}`}>
         <ModalProvider />
         <ToastProvider />
         <Navbar />
